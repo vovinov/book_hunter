@@ -1,13 +1,20 @@
 import time
 from selenium import webdriver
+from selenium_stealth import stealth
 
-options = webdriver.ChromeOptions
-options.add_argument('user_agent=HelloWorld')
-browser = webdriver.Chrome(options=options),
+browser = webdriver.Chrome()
+
+stealth(browser,
+        vendor="Google Inc.",
+        platform="Win32",
+        webgl_vendor="Intel Inc.",
+        renderer="Intel Iris OpenGL Engine",
+        fix_hairline=True,
+        )
 
 
-# url = 'https://www.ozon.ru'
-url = 'https://www.whatismybrowser.com/detect/what-is-my-user-agent/'
+url = 'https://www.ozon.ru'
+
 
 try:
     browser.get(url=url)
