@@ -1,9 +1,13 @@
 import time
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+options = webdriver.ChromeOptions
+options.add_argument('user_agent=HelloWorld')
+browser = webdriver.Chrome(options=options),
 
-url = 'https://www.ozon.ru'
+
+# url = 'https://www.ozon.ru'
+url = 'https://www.whatismybrowser.com/detect/what-is-my-user-agent/'
 
 try:
     browser.get(url=url)
