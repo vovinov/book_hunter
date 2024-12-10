@@ -27,21 +27,20 @@ def hunt_book(isbn, url):
     time.sleep(2)
     input_text.send_keys(isbn)
     input_text.send_keys(Keys.ENTER)
+    time.sleep(2)
 
-    return browser.current_url + '&sorting=price'
+    browser.get(browser.current_url + '&sorting=price')
 
+    price_lists = browser.find_elements(By.XPATH, '//span[contains(@class, "tsHeadline500Medium")]')
 
-def get_price(site):
-
-    request = requests.get(site)
-    print(request)
+    return [x.text for x in price_lists][0][:4]
 
 
 if __name__ == "__main__":
     try:
         current_site = hunt_book("978-5-04-186916-8", 'https://www.ozon.ru')
         time.sleep(2)
-        get_price(current_site)
+        print(current_site)
 
     except Exception as e:
         print(e)
