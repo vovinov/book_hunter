@@ -566,7 +566,17 @@ files = [
 [package.dependencies]
 h11 = ">=0.9.0,<1"
 
+[[package]]
+name = "xlml"
+version = "0.1.2"
+description = "Easy Excel to HTML library for Python (3.x)."
+optional = false
+python-versions = "*"
+files = [
+    {file = "XLML-0.1.2.tar.gz", hash = "sha256:ce52f6a6225d7f3250f8a148f26b46fb3250fac7ed0d814d97a289b73152c561"},
+]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3536b8515b83ef4c32b60247255c552452b59f856443adbb62bb7e64abf798cd"
+content-hash = "29170745b75c0f67a933a34971041862d8a26928ad387014aaa284bb75b63a91"

@@ -8,16 +8,25 @@ from bs4 import BeautifulSoup
 
 import requests
 
-browser = webdriver.Chrome()
+
+opts = webdriver.ChromeOptions()
+opts.headless = True
+
+browser = webdriver.Chrome(options=opts)
 
 stealth(browser,
-        vendor="Google Inc.",
+        vendor="Google Inc.", 
         platform="Win32",
         webgl_vendor="Intel Inc.",
         renderer="Intel Iris OpenGL Engine",
         fix_hairline=True,
         )
 
+def login_ozon():
+    browser.get(url='https://www.ozon.ru/')
+    user_login = browser.find_element(By.XPATH, '//a[@href,"/my/main"]')
+    print(user_login)
+    time.sleep(5)
 
 def hunt_book(isbn, url):
     browser.get(url=url)
@@ -38,9 +47,10 @@ def hunt_book(isbn, url):
 
 if __name__ == "__main__":
     try:
-        current_site = hunt_book("978-5-04-186916-8", 'https://www.ozon.ru')
-        time.sleep(2)
-        print(current_site)
+        login_ozon()
+        # current_site = hunt_book("978-5-04-186916-8", 'https://www.ozon.ru')
+        # time.sleep(2)
+        # print(current_site)
 
     except Exception as e:
         print(e)

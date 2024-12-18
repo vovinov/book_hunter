@@ -13,6 +13,7 @@ selenium = "^4.27.1"
 selenium-stealth = "^1.0.6"
 django = "^5.1.4"
 django-environ = "^0.11.2"
+xlml = "^0.1.2"
 
 
 [build-system]
